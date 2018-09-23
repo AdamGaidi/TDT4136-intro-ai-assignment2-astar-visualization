@@ -1,4 +1,4 @@
-package Astar;
+package astar;
 
 public class BestFirstSearch {
 
