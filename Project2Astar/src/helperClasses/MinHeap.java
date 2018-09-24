@@ -19,7 +19,12 @@ public class MinHeap {
 			this.minHeapify(this.minHeap, i);
 		}
 	}
-	/*Min-heapify algorithm: This implementation is only concerned with getting the smallest element to index: 0*/
+	/*
+	 * Min-heapify algorithm: 
+	 * This implementation is only concerned with getting the smallest element to index: 0
+	 *  Its not a true implementation of min-heapify 
+	 *  The error: The algorithm as it is written here assumes 1-indexing, while java uses 0-indexing
+	 */
 	private void minHeapify(List<Integer> incompleteHeap, int index) {
 		int leftChildIndex;
 		int rightChildIndex;
