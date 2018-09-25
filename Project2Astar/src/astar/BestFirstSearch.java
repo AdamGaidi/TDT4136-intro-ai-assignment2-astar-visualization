@@ -51,6 +51,28 @@ public class BestFirstSearch {
 					xCoordinate = 0;
 					yCoordinate++;
 					break;
+					
+				/* Cases used in part 2 of the project: Differnet costs for different cell-types */
+				case 'w':
+					this.allNodes.add(new SearchNode(xCoordinate, yCoordinate, 100, 'w'));
+					xCoordinate++;
+					break;
+				case 'm':
+					this.allNodes.add(new SearchNode(xCoordinate, yCoordinate, 50, 'm'));
+					xCoordinate++;
+					break;
+				case 'f':
+					this.allNodes.add(new SearchNode(xCoordinate, yCoordinate, 10, 'f'));
+					xCoordinate++;
+					break;
+				case 'g':
+					this.allNodes.add(new SearchNode(xCoordinate, yCoordinate, 5, 'g'));
+					xCoordinate++;
+					break;
+				case 'r':
+					this.allNodes.add(new SearchNode(xCoordinate, yCoordinate, 1, 'r'));
+					xCoordinate++;
+					break;
 			}
 			//Log board-info
 			if (character == '\n') {

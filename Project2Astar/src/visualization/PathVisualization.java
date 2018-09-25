@@ -29,7 +29,7 @@ public class PathVisualization extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		String board = new String(Files.readAllBytes(Paths.get("./boards/board-1-1.txt")));
+		String board = new String(Files.readAllBytes(Paths.get("./boards/board-2-4.txt")));
 		BestFirstSearch bfs = new BestFirstSearch(board);
 		
 		grid.setPadding(new Insets(10, 10, 10, 10));
@@ -40,6 +40,7 @@ public class PathVisualization extends Application{
 		
 		this.allNodes = bfs.getAllNodes();
 		this.solution = bfs.agenda();
+		System.out.println(this.solution);
 		
 		for (SearchNode node : this.allNodes) {
 			Label symbol = new Label("" + node.getSymbol());
@@ -51,6 +52,18 @@ public class PathVisualization extends Application{
 				symbol.setStyle("-fx-background-color: #8B0000; -fx-padding: 8;");
 			} else if (node.getSymbol() == 'B') {
 				symbol.setStyle("-fx-background-color: #7CFC00; -fx-padding: 8;");
+			}
+			/* Extended cell-types for part 2 */
+			else if (node.getSymbol() == 'w') {
+				symbol.setStyle("-fx-background-color: #191970; -fx-padding: 8;");
+			} else if (node.getSymbol() == 'm') {
+				symbol.setStyle("-fx-background-color: #D3D3D3; -fx-padding: 8;");
+			} else if (node.getSymbol() == 'f') {
+				symbol.setStyle("-fx-background-color: #228B22; -fx-padding: 8;");
+			} else if (node.getSymbol() == 'g') {
+				symbol.setStyle("-fx-background-color: #7CFC00; -fx-padding: 8;");
+			}  else if (node.getSymbol() == 'r') {
+				symbol.setStyle("-fx-background-color: #DEB887; -fx-padding: 8;");
 			}
 			grid.add(symbol, node.getX(), node.getY());
 		}
