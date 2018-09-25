@@ -54,6 +54,7 @@ public class CustomMinHeap {
 		
 	}
 	
+	
 	/*Extract the smallest element from the heap. Re-heapify the remaining elements*/
 	public SearchNode heapExtractMin() {
 		if (this.minHeap.size() < 1) {
@@ -84,6 +85,11 @@ public class CustomMinHeap {
 		this.heapDecreaseKey(this.minHeap.size() - 1, element.getfCost() - 1);
 	}
 	
+	public boolean isEmpty() {
+		return this.minHeap.isEmpty();
+	}
+	
+	
 	private void swap(int indexChild, int indexParent, List<SearchNode> heap) {
 		SearchNode valHolder = heap.get(indexChild);
 		heap.set(indexChild, heap.get(indexParent));
@@ -100,4 +106,64 @@ public class CustomMinHeap {
 		}
 		return parentIndex;
 	}
+	
+	public boolean contains(SearchNode node) {
+		return this.minHeap.contains(node);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public String toString() {
+		String returnString = "";
+		for (SearchNode node : this.minHeap) {
+			returnString += node.getfCost();
+		}
+		
+		return returnString;
+	}
+	
+	/* Quick testing of the minheap with SearchNodes to demonstrate how it works:
+	public static void main(String[] args) {
+		CustomMinHeap minheap = new CustomMinHeap();
+		
+		SearchNode node1 = new SearchNode(0, 3, 7);
+		SearchNode node2 = new SearchNode(1, 4, 3);
+		SearchNode node3 = new SearchNode(2, 2, 4);
+		SearchNode node4 = new SearchNode(3, 1, 3);
+		SearchNode node5 = new SearchNode(4, 0, 2);
+		
+		node1.setfCost(6);
+		node2.setfCost(2);
+		node3.setfCost(4);
+		node4.setfCost(7);
+		node5.setfCost(1);
+		
+		minheap.insertElement(node1);
+		minheap.insertElement(node2);
+		minheap.insertElement(node3);
+		minheap.insertElement(node4);
+		minheap.insertElement(node5);
+		
+		System.out.println("Initial minheap: " + minheap);
+		minheap.heapDecreaseKey(3, 0);
+		System.out.println("Heap after decreasing key=7 to key=0: " + minheap);
+		System.out.println("Extracted min element: " + minheap.heapExtractMin().getfCost());
+		System.out.println("Minheap after min element was extracted: " + minheap);
+		System.out.println("Extracted min element: " + minheap.heapExtractMin().getfCost());
+		System.out.println("Extracted min element: " + minheap.heapExtractMin().getfCost());
+		System.out.println("Extracted min element: " + minheap.heapExtractMin().getfCost());
+		System.out.println("Minheap " + minheap);
+		
+		minheap.insertElement(node1);
+		minheap.insertElement(node2);
+		minheap.insertElement(node3);
+		
+		System.out.println("Minheap " + minheap);
+		
+	} */
 }
