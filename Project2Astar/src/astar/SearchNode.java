@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/* Object for holding the state of each node on the board */
 public class SearchNode {
 	
 	private int xCoordinate;
@@ -18,7 +19,8 @@ public class SearchNode {
 	
 	private int weight;
 	
-	private Character symbol;
+	
+	private Character symbol; //Used for visualization
 	
 	private SearchNode bestParent;
 	private Set<SearchNode> children = new HashSet<>();

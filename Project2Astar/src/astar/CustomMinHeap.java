@@ -89,7 +89,7 @@ public class CustomMinHeap {
 		return this.minHeap.isEmpty();
 	}
 	
-	
+	/* Swap positions of child and parent in the heap */
 	private void swap(int indexChild, int indexParent, List<SearchNode> heap) {
 		SearchNode valHolder = heap.get(indexChild);
 		heap.set(indexChild, heap.get(indexParent));
@@ -97,6 +97,7 @@ public class CustomMinHeap {
 		this.minHeapify(heap, indexChild);
 	}
 	
+	/* Find the parent */
 	private int calculateParentIndex(int childIndex) {
 		int parentIndex;
 		if (childIndex % 2 == 0) {

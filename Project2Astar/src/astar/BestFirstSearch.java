@@ -83,10 +83,12 @@ public class BestFirstSearch {
 			}
 		}
 		
+		//Make the BFS ready to start
 		this.openNodes.insertElement(this.start);
 		this.calculateManhattanDistance(this.start);
 	}
 	
+	/* Main method of the bfs-search, this is where the A*-algorithm works */
 	public List<SearchNode> agenda() {
 		SearchNode currentNode = this.start;
 		while (currentNode != this.goal) {
@@ -123,6 +125,7 @@ public class BestFirstSearch {
 		return this.allNodes;
 	}
 	
+	/* If node has improved g-value -> Propagate new values to children */
 	private void propagatePathImprovements(SearchNode node) {
 		for (SearchNode child : node.getChildren()) {
 			if (node.getgCost() + child.getWeight() < child.getgCost()) {
@@ -133,6 +136,7 @@ public class BestFirstSearch {
 		}
 	}
 	
+	/* New shortest path was discovered -> Set parent and update g-cost of child. */
 	private void attachAndEval(SearchNode child, SearchNode parent) {
 		child.setParent(parent);
 		child.setgCost(parent.getgCost() + child.getWeight());
@@ -183,6 +187,7 @@ public class BestFirstSearch {
 		node.sethCost(deltaY + deltaX);
 	}
 	
+	/* If goal-node is found build the path back to start, return as list. */
 	private List<SearchNode> success() {
 		SearchNode currentNode = this.goal;
 		List<SearchNode> solutionPath = new ArrayList<>();
@@ -191,6 +196,9 @@ public class BestFirstSearch {
 			solutionPath.add(currentNode);
 			currentNode = currentNode.getParent();
 		}
+		
+		solutionPath.add(currentNode);
+		
 		return solutionPath;
 	}
 }
